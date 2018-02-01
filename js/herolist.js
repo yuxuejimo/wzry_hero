@@ -15,7 +15,7 @@ var table = new Vue({
     methods: {
         getList: function(){
             var self = this;
-            $.getJSON("http://pvp.qq.com/web201605/js/herolist.json",function(res){
+            $.getJSON("herolist.json",function(res){
                 self.hlist = res.slice(0,10);
             })
         }
@@ -38,7 +38,7 @@ var paging = new Vue({
     methods: {
         init:function(){
             var self = this;
-            $.getJSON("http://pvp.qq.com/web201605/js/herolist.json",function(res){
+            $.getJSON("herolist.json",function(res){
                 self.items_sum = res.length;
                 self.end_page = Math.ceil(self.items_sum/self.page_count);
             });
@@ -47,7 +47,7 @@ var paging = new Vue({
         getnewdata:function(e){
             var self = this;
             self.cur_page = e;
-            $.getJSON("http://pvp.qq.com/web201605/js/herolist.json",function(res){
+            $.getJSON("herolist.json",function(res){
                 table.hlist = res.slice((self.cur_page-1)*10,self.cur_page*10);
             }) ;
         }
