@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        .pagination li.active a{
+            background:#0E90D2;
+            color:#fff;
+        }
+    </style>
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/jquery-1.11.3.min.js"></script>
+    
+</head>
+
+<body>
+
+    
+        
+                
+                <table id="herolist" class="table">
+            <tr>
+                <td>序号</td>
+                <td>ename</td>
+                <td>英雄姓名</td>
+                <td>江湖称号</td>
+                <td>英雄类型</td>
+                <td>皮肤列表</td>
+                <td>是否是新英雄</td>
+            </tr>
+            <tr v-for="(hero,index) in hlist ">
+                <td>{{index+1}}</td>
+                <td>{{hero.ename}}</td>
+                <td>{{hero.cname}}</td>
+                <td>{{hero.title}}</td>
+                <td>{{htype[hero.hero_type]}}<span v-if="hero.hero_type2">，{{htype[hero.hero_type2]}}</span></td>
+                <td>{{hero.skin_name}}</td>
+                <td v-if="hero.new_type===1">新英雄</td>
+                <td v-else>老英雄</td>
+            </tr>
+        </table>
+                <nav aria-label="Page navigation" id="paging">
+                    <ul class="pagination" v-for="p in end_page">
+                        <li :class="{'active':cur_page===p}" @click="getnewdata(p)"><a href="#"  >{{p}}</li>
+                    </ul>
+                </nav>
+                
+    
+    <script src="js/herolist.js"></script>
+
+</body>
+
+</html>

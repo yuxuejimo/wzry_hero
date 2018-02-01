@@ -1,0 +1,9 @@
+$(document).ready(function(){
+    $("#content").load("herolist.html");
+});
+$("#htable").click(function(){
+   $("#content").load("herolist.html");
+});
+$("#ht").click(function(){
+   $("#content").load("ht.html");
+});
