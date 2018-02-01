@@ -1,5 +1,5 @@
 var d = new Array();
-$.getJSON("/data/herolist.json",function(res){
+$.getJSON("../data/herolist.json",function(res){
     var htype = {
             1:'战士',
             2:'法师',
